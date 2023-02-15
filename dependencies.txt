@@ -1,4 +1,6 @@
-- beautifulsoup4
+- beautifulsoup4 (pip installed with bs4) (deprecated)
+- scrython
 - PyQt6
 - Pyside6
 - psycopg2 (note: pip install may have issues with psycopg2, so use "pip install psycopg2-binary" instead.)
+- requests
