@@ -17,7 +17,7 @@ class Cacher:
         self.cursor.execute("CREATE TABLE IF NOT EXISTS cardCache (name BLOB)")
 
     def search(self, name):
-        return False
+        return self.cursor.execute("SELECT * FROM cardCache WHERE name LIKE '%' || ? || '%'", (name,)).fetchall()
 
     def add(self, name):
         if not self.search(name):

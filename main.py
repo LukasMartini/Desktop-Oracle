@@ -39,6 +39,7 @@ class mw(QMainWindow):
 
     def updateSearch(self, search):
         self.url = search # NOTE: this means that there is a simple in operation to check if the search should come back.
+        parserTest.search(self.url)
 
 
 
@@ -49,7 +50,8 @@ window = mw()
 # TEST CODE: used to ensure that card grabbing works properly.
 parserTest = Parser()
 parserTest.search("Crater")
-parserTest.cache.clear()
+#print(parserTest.card)
+#parserTest.cache.clear()
 parserTest.cache.close()
 
 
