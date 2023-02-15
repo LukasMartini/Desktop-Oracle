@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget
-from PyQt6.QtWidgets import QVBoxLayout, QGridLayout
-from PyQt6.QtWidgets import QLineEdit, QPushButton, QScrollArea, QLabel
+from PyQt6.QtWidgets import QVBoxLayout
+from PyQt6.QtWidgets import QLineEdit, QScrollArea, QLabel
 
 from cardInfo import CardInfo
 
