@@ -1,0 +1,4 @@
+- beautifulsoup4
+- PyQt6
+- Pyside6
+- psycopg2
