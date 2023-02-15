@@ -2,15 +2,17 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget
 from PyQt6.QtWidgets import QVBoxLayout, QGridLayout
 from PyQt6.QtWidgets import QLineEdit, QPushButton, QScrollArea, QLabel
 
+from cardInfo import CardInfo
+
 class mw(QMainWindow):
     def __init__(self):
-        super().__init__()
+        super(mw, self).__init__()
         mainWindow = QWidget()
         mainLayout = QVBoxLayout()
 
         # Setup for searchbar widget
         self.searchBar = QLineEdit()
-        self.searchBar.setPlaceholderText("Search with card names and text...");
+        self.searchBar.setPlaceholderText("Search with card names and text...")
         self.searchBar.textChanged.connect(self.updateSearch)
 
         # Setup for scroll area and related widgets
@@ -19,7 +21,10 @@ class mw(QMainWindow):
 
         self.scroller = QWidget()
         self.scrollLayout = QVBoxLayout()
+        self.scroller.setLayout(self.scrollLayout)
         self.cardViewer.setWidget(self.scroller)
+
+        self.scrollLayout.addWidget(CardInfo())
 
         # Add both main widgets to the main layout
         mainLayout.addWidget(self.searchBar)
