@@ -14,9 +14,10 @@ class Parser:
 
     def search(self, name): # TODO: avoid searching with scrython directly, try to check the cache first.
         try:
-            time.sleep(0.2) # Used to avoid an IP ban.
             self.card = scrython.cards.Search(q=name) # Runs a search query based on whatever the user puts in.
+            time.sleep(0.1) # Used to avoid an IP ban.
             for each in range(len(self.card.data())): # Adds the name of each item into the cache
                 self.cache.add(self.card.data()[each].get('name'))
+                #print(self.card.data()[each]) # DEBUG CODE, DELETE LATER
         except Exception as e:
             self.card = self.cache.search(name)
