@@ -12,7 +12,7 @@ class Parser:
         self.card = "" # Ensure that this is public to other classes.
         self.cache = cacher.Cacher()
 
-    def search(self, name): # TODO: avoid searching with scrython directly, try to check the cache first.
+    def search(self, name):
         try:
             self.card = scrython.cards.Search(q=name) # Runs a search query based on whatever the user puts in.
             self.returnCard = []

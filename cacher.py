@@ -4,13 +4,8 @@ from PyQt6.QtCore import QCoreApplication
 class Cacher:
     def __init__(self):
         self.conn = ""
-        try:
-            filepath = QCoreApplication.applicationDirPath()
-            self.conn = sql.connect(filepath + "cache.db")
-        except Exception as e:
-            print("Database Connection Error: ensure that cache.db is in the same directory as this file or create a new file named cache.db.")
-            print(e)
-            exit(0)
+        filepath = QCoreApplication.applicationDirPath()
+        self.conn = sql.connect(filepath + 'cache.db')
 
         self.cursor = self.conn.cursor()
 
