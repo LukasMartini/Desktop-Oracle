@@ -49,8 +49,9 @@ window = mw()
 
 # TEST CODE: used to ensure that card grabbing works properly.
 parserTest = Parser()
-parserTest.search("Crater")
-parserTest.cache.printTable()
+testCard = parserTest.search("Crater")
+#print(testCard)
+#parserTest.cache.printTable()
 #parserTest.cache.clear()
 
 main.exec()

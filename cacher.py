@@ -29,14 +29,19 @@ class Cacher:
                                                                         loyalty integer)""")
 
     def search(self, name): # TODO: add in for columns.
-        return self.cursor.execute("SELECT * FROM cardCache WHERE name LIKE '%' || ? || '%'", (name,)).fetchall()
+        exact = self.searchExact(name)
+        if not exact:
+            return self.cursor.execute("SELECT * FROM cardCache WHERE name LIKE '%' || ? || '%'", (name,)).fetchall()
+        else:
+            return exact
 
     def searchExact(self, name):
         return self.cursor.execute("SELECT * FROM cardCache WHERE name LIKE ?", (name,)).fetchall()
 
-    def add(self, name):
-        if not self.searchExact(name):
-            self.cursor.execute("INSERT INTO cardCache (name) VALUES (?)", (name,))
+    def add(self, data):
+        if not self.searchExact(data[0]):
+            self.cursor.execute("INSERT INTO cardCache (name, smallImgURI, normalImgURI, manaCost, typeLine, oracleText, power, toughness, loyalty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                                (data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]))
             self.conn.commit()
 
     def printTable(self):
