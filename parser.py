@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import requests
 
 import scrython
-import time
 import cacher
 
 class Parser:
@@ -16,7 +15,6 @@ class Parser:
         try:
             self.card = scrython.cards.Search(q=name) # Runs a search query based on whatever the user puts in.
             self.returnCard = []
-            time.sleep(0.1) # Used to avoid an IP ban.
             for each in range(len(self.card.data())): # Adds the name of each item into the cache
                 self.returnCard.append((self.card.data()[each].get('name'),
                                         self.card.data()[each].get('image_uris').get('small'),
