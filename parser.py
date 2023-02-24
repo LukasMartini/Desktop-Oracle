@@ -13,6 +13,8 @@ class Parser:
         self.returnCard = []
 
     def search(self, name):
+        if name == "":
+            return []
         try:
             self.card = scrython.cards.Search(q=name) # Runs a search query based on whatever the user puts in.
             self.returnCard = []
@@ -30,7 +32,6 @@ class Parser:
                 self.cache.add(info)
             self.card = self.returnCard
         except Exception as e:
-            print(e)
             self.card = self.cache.search(name)
 
         return self.card
