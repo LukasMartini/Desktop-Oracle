@@ -6,6 +6,8 @@ from PyQt6.QtCore import QTimer
 from cardInfo import CardInfo
 from parser import Parser
 
+
+#TODO: MAIN OVERHEAD TODO TO DO BECAUSE IT'S IMPORTANT: please put pre and post conditions on everything.
 class mw(QMainWindow):
     def __init__(self):
         super(mw, self).__init__()
