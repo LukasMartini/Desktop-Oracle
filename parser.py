@@ -23,6 +23,7 @@ class Parser:
                 for each in range(len(self.card.data())): # Adds the name of each item into the cache
                     # The total_cards check is to allow for more narrow searches to find cards less strictly when it doesn't affect time much.
                     # the compareStart check is to cut down on huge checks.
+                    #TODO: add a page system to cut down on slow query times.
                     if self.card.scryfallJson.get('total_cards') < 200 or self.compareStart(name, self.card.data()[each].get('name')):
                         info = [self.card.data()[each].get('name'),
                                 self.card.data()[each].get('mana_cost'),
