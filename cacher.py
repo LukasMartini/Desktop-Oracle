@@ -13,8 +13,6 @@ class Cacher:
 
     def createTable(self): # Here entirely to avoid having to refactor each statement as columns get added.
         self.cursor.execute("""CREATE TABLE IF NOT EXISTS cardCache (name BLOB, 
-                                                                     smallImgURI BLOB, 
-                                                                     normalImgURI BLOB, 
                                                                      manaCost BLOB, 
                                                                      typeLine BLOB,
                                                                      oracleText BLOB,
@@ -38,8 +36,8 @@ class Cacher:
 
     def add(self, data):
         if not self.searchExact(data[0]):
-            toExec = "INSERT INTO cardCache (name, smallImgURI, normalImgURI, manaCost, typeLine, oracleText, power, toughness, loyalty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            self.cursor.execute(toExec, (data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]))
+            toExec = "INSERT INTO cardCache (name, manaCost, typeLine, oracleText, power, toughness, loyalty) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            self.cursor.execute(toExec, (data[0], data[1], data[2], data[3], data[4], data[5], data[6]))
             self.conn.commit()
 
     def printTable(self):

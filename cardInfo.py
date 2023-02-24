@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel
 from manaSymbols import ManaSymbols
 
 class CardInfo(QWidget):
-    def __init__(self, name, smallImgURI, normalImgURI, manaCost, typeLine, oracleText, power, toughness, loyalty):
+    def __init__(self, name, manaCost, typeLine, oracleText, power, toughness, loyalty):
         super(CardInfo, self).__init__()
 
         cardLayout = QHBoxLayout()

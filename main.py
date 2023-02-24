@@ -72,7 +72,7 @@ class mw(QMainWindow):
             pass
 
         for each in results:
-            self.scrollLayout.addWidget(CardInfo(each[0], each[1], each[2], each[3], each[4], each[5], each[6], each[7], each[8]))
+            self.scrollLayout.addWidget(CardInfo(each[0], each[1], each[2], each[3], each[4], each[5], each[6]))
 
     def clearTables(self):
         self.searchBar.setText(self.defaultText)
