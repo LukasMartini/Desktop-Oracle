@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 
 import scrython
+import scrython.foundation
 import cacher
 
 class Parser:
@@ -12,31 +13,28 @@ class Parser:
         self.cache = cacher.Cacher()
         self.returnCard = []
 
-    def search(self, name):
+    def search(self, name, pageNum):
         if name == "": # This is in place to avoid just pulling the entire cache when backspacing your way to victory.
             return []
         try:
-            pageNum = 1
             self.returnCard = []
-            while pageNum == 1 or self.card.has_more(): # pageNum ensures it runs once, self.card.has_more ensures it stops once it runs out of pages.
-                self.card = scrython.cards.Search(q=name, page=pageNum) # Runs a search query based on whatever the user puts in.
-                for each in range(len(self.card.data())): # Adds the name of each item into the cache
-                    # The total_cards check is to allow for more narrow searches to find cards less strictly when it doesn't affect time much.
-                    # the compareStart check is to cut down on huge checks.
-                    #TODO: add a page system to cut down on slow query times.
-                    if self.card.scryfallJson.get('total_cards') < 200 or self.compareStart(name, self.card.data()[each].get('name')):
-                        info = [self.card.data()[each].get('name'),
-                                self.card.data()[each].get('mana_cost'),
-                                self.card.data()[each].get('type_line'),
-                                self.card.data()[each].get('oracle_text'),
-                                self.card.data()[each].get('power'),
-                                self.card.data()[each].get('toughness'),
-                                self.card.data()[each].get('loyalty')]
-                        self.returnCard.append(info)
-                        self.cache.add(info)
-                pageNum += 1
-        except Exception as e:
-            print(e)
+            self.card = scrython.cards.Search(q=name, page=pageNum) # Runs a search query based on whatever the user puts in.
+            for each in range(len(self.card.data())): # Adds the name of each item into the cache
+                info = [self.card.data()[each].get('name'),
+                        self.card.data()[each].get('mana_cost'),
+                        self.card.data()[each].get('type_line'),
+                        self.card.data()[each].get('oracle_text'),
+                        self.card.data()[each].get('power'),
+                        self.card.data()[each].get('toughness'),
+                        self.card.data()[each].get('loyalty')]
+                self.returnCard.append(info)
+                self.cache.add(info)
+        except scrython.ScryfallError as e: # Brute force error checking, ensures that the page is turned blank if you go beyond the number of pages available.
+            # TODO: Make it so that once this state has been reached, it doesn't let you go any further.
+            if "You have paginated beyond the end of these results, reduce your `page` parameter or refer to the syntax guide at https://scryfall.com/docs/reference" in e.error_details:
+                return []
+        except Exception as p:
+            print(p)
             self.returnCard = self.cache.search(name)
 
         return self.returnCard
