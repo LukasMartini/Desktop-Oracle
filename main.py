@@ -92,13 +92,13 @@ class mw(QMainWindow):
     def updateSearch(self): # THIS SHOULD NEVER BE CALLED DIRECTLY
         self.url = self.searchBar.text() # NOTE: this means that there is a simple in operation to check if the search should come back.
         results = self.parser.search(self.url, self.currPage)
-        results = sorted(results, key=lambda result: result[0].find(self.url)) # Uses a lambda that sorts by the earliest appearance of the search term.
 
         #TODO: This is a very dirty solution to get around some of the widgets mysteriously being NoneType. Try to find out root cause to not have to do this.
         while self.clearScrollLayout():
             pass
 
         for each in results:
+            breakpoint = 0
             self.scrollLayout.addWidget(CardInfo(each[0], each[1], each[2], each[3], each[4], each[5], each[6]))
 
     def goToNextPage(self):
