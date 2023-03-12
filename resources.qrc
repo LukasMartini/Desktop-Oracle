@@ -1,5 +1,34 @@
 <RCC>
     <qresource>
-        <file>resources/u.png</file>
+        <file>resources/1.png</file>
+        <file>resources/2.png</file>
+        <file>resources/3.png</file>
+        <file>resources/4.png</file>
+        <file>resources/5.png</file>
+        <file>resources/6.png</file>
+        <file>resources/7.png</file>
+        <file>resources/8.png</file>
+        <file>resources/9.png</file>
+        <file>resources/10.png</file>
+        <file>resources/11.png</file>
+        <file>resources/12.png</file>
+        <file>resources/13.png</file>
+        <file>resources/14.png</file>
+        <file>resources/15.png</file>
+        <file>resources/16.png</file>
+        <file>resources/infinity.png</file>
+        <file>resources/W.png</file>
+        <file>resources/WP.png</file>
+        <file>resources/U.png</file>
+        <file>resources/UP.png</file>
+        <file>resources/B.png</file>
+        <file>resources/BP.png</file>
+        <file>resources/R.png</file>
+        <file>resources/RP.png</file>
+        <file>resources/G.png</file>
+        <file>resources/GP.png</file>
+        <file>resources/C.png</file>
+        <file>resources/tap.png</file>
+        <file>resources/untap.png</file>
     </qresource>
 </RCC>

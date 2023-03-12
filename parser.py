@@ -30,7 +30,6 @@ class Parser:
                 self.returnCard.append(info)
                 self.cache.add(info)
         except scrython.ScryfallError as e: # Brute force error checking, ensures that the page is turned blank if you go beyond the number of pages available.
-            # TODO: Make it so that once this state has been reached, it doesn't let you go any further.
             return pageNum-1
         except Exception as p:
             print(p)

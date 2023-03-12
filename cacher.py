@@ -1,6 +1,9 @@
 import sqlite3 as sql
 from PyQt6.QtCore import QCoreApplication
-
+# MAJOR TODO: make this cache actually worthwhile:
+#             - If at all possible, find a way to make the cache more efficient than the regular search
+#             - Make the table not just a big fucking list (hopefully)
+#             - Try to search the cache when there is a specific name (for info like cmc) (not usable by end user, probably)
 class Cacher:
     def __init__(self):
         self.conn = ""
