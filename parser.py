@@ -18,7 +18,6 @@ class Parser:
             return []
         try:
             self.returnCard = []
-            # TODO: find a way to make the search not case-sensitive.
             self.card = scrython.cards.Search(q=name, page=pageNum, order="name", dir="asc") # Runs a search query based on whatever the user puts in.
             for each in range(len(self.card.data())): # Adds the name of each item into the cache
                 info = [self.card.data()[each].get('name'),
