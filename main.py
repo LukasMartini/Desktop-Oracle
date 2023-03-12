@@ -87,11 +87,16 @@ class mw(QMainWindow):
         self.parser.cache.clear()
 
     def preventUpdateSearchOverload(self):
-        self.preventOverload.start(100)
+        self.preventOverload.start(1000)
 
     def updateSearch(self): # THIS SHOULD NEVER BE CALLED DIRECTLY
         self.url = self.searchBar.text() # NOTE: this means that there is a simple in operation to check if the search should come back.
         results = self.parser.search(self.url, self.currPage)
+
+        if isinstance(results, int):
+            self.currPage = results
+            self.currPageLabel.setText(str(self.currPage))
+            results = []
 
         self.clearScrollLayout()
 

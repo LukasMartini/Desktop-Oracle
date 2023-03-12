@@ -31,10 +31,8 @@ class Parser:
                 self.cache.add(info)
         except scrython.ScryfallError as e: # Brute force error checking, ensures that the page is turned blank if you go beyond the number of pages available.
             # TODO: Make it so that once this state has been reached, it doesn't let you go any further.
-            if "You have paginated beyond the end of these results, reduce your `page` parameter or refer to the syntax guide at https://scryfall.com/docs/reference" in e.error_details:
-                return []
+            return pageNum-1
         except Exception as p:
             print(p)
             self.returnCard = self.cache.search(name)
-
         return self.returnCard
