@@ -17,7 +17,7 @@ class ManaSymbols(QWidget):
         # TODO: general strat will be to parse the mana cost and add the resource file w/ string concating.
 
         self.cost = QLabel()
-        self.cost.setPixmap(U)
+        self.cost.setPixmap(G)
         self.costLayout.addWidget(self.cost)
 
         self.setLayout(self.costLayout)
