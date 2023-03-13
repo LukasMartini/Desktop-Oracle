@@ -10,7 +10,7 @@ class CardInfo(QWidget):
 
         self.cardName = QLabel(name)
         self.cardText = QLabel(oracleText)
-        self.cmc = ManaSymbols()
+        self.cmc = ManaSymbols(manaCost)
 
         cardLayout.addWidget(self.cardName)
         cardLayout.addWidget(self.cardText)
