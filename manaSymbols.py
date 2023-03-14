@@ -7,10 +7,11 @@ class ManaSymbols(QWidget):
     def __init__(self, manaCost):
         super(ManaSymbols, self).__init__()
         self.costLayout = QHBoxLayout()
+        self.costLayout.setContentsMargins(0,0,0,0)
 
         # TODO: Possible bug catching and general improvements:
         #       - There is likely to be an issue with mana symbols that I forgot to include/how they format infinity in the json.
-        #       - Fix the spacing on the layout with styling, shouldn't be difficult
+        # FIXED - Fix the spacing on the layout with styling, shouldn't be difficult
         # FIXED - Phyrexian symbols do not work as of this moment (they're replaced by the non-phyrexian counterpart)
 
         currentPositionInString = 0
@@ -22,6 +23,6 @@ class ManaSymbols(QWidget):
             elif each != '{' and each != '}':
                 newLabel.setPixmap(QPixmap(':/resources/' + each + '.png'))
                 self.costLayout.addWidget(newLabel)
-            currentPositionInString+=1
+            currentPositionInString += 1
 
         self.setLayout(self.costLayout)

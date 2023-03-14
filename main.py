@@ -29,7 +29,7 @@ class mw(QMainWindow):
         self.searchBar.setPlaceholderText(self.defaultText)
         self.searchBar.textChanged.connect(self.preventUpdateSearchOverload)
 
-        # Setup for scroll area and related widgets
+        # Setup for scroll area and related widgets TODO: fix spacing and just generally spruce it up
         self.cardViewer = QScrollArea()
         self.cardViewer.setWidgetResizable(True)
 
@@ -122,6 +122,7 @@ class mw(QMainWindow):
 
 main = QApplication([])
 window = mw()
+window.resize(750, 600)
 
 main.exec()
 window.parser.cache.close()
