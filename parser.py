@@ -24,7 +24,7 @@ class Parser:
                     info = [self.card.data()[each].get('name'),
                             self.card.data()[each].get('card_faces')[0].get('mana_cost'), # TODO: push of the job of displaying both manacosts to manaSymbols. maybe format it here
                             self.card.data()[each].get('type_line'),
-                            self.card.data()[each].get('oracle_text'),
+                            self.card.data()[each].get('card_faces')[0].get('oracle_text'),
                             self.card.data()[each].get('power'),
                             self.card.data()[each].get('toughness'),
                             self.card.data()[each].get('loyalty')]

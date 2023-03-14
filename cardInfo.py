@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel
+from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel, QLayout
 
 from manaSymbols import ManaSymbols
 
@@ -7,7 +7,9 @@ class CardInfo(QWidget):
         super(CardInfo, self).__init__()
 
         cardLayout = QHBoxLayout()
+        cardLayout.setContentsMargins(0, 10, 0, 10)
 
+        # TODO: cry until this isn't absolute ass and balls
         reformat = oracleText.split('\n')
         formattedText = []
         for each in reformat:
@@ -27,7 +29,10 @@ class CardInfo(QWidget):
                     wordCount = 0
 
         self.cardName = QLabel(name)
+        self.cardName.setFixedWidth(250)
+
         self.cardText = QLabel('\n'.join(formattedText))
+
         self.cmc = ManaSymbols(manaCost)
 
         cardLayout.addWidget(self.cardName)

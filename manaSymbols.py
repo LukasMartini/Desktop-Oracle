@@ -1,4 +1,5 @@
-from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel
+from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel, QLayout
+from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap
 import resources
 
@@ -7,7 +8,7 @@ class ManaSymbols(QWidget):
     def __init__(self, manaCost):
         super(ManaSymbols, self).__init__()
         self.costLayout = QHBoxLayout()
-        self.costLayout.setContentsMargins(0,0,0,0)
+        self.costLayout.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
 
         # TODO: Possible bug catching and general improvements:
         #       - There is likely to be an issue with mana symbols that I forgot to include/how they format infinity in the json.

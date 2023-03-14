@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget
+from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QSizePolicy
 from PyQt6.QtWidgets import QVBoxLayout, QHBoxLayout
 from PyQt6.QtWidgets import QLineEdit, QScrollArea, QLabel, QPushButton
 from PyQt6.QtCore import QTimer
@@ -122,7 +122,7 @@ class mw(QMainWindow):
 
 main = QApplication([])
 window = mw()
-window.resize(750, 600)
+window.resize(1000, 600)
 
 main.exec()
 window.parser.cache.close()
