@@ -1,5 +1,6 @@
 <RCC>
     <qresource>
+        <file>resources/0.png</file>
         <file>resources/1.png</file>
         <file>resources/2.png</file>
         <file>resources/3.png</file>
